@@ -20,6 +20,8 @@ module Faraday
       @app.call env
     end
 
+    private
+
     def matched_scheme(path)
       matched_mapping = @mapping.select do |_, patterns|
         patterns.any? { |p| p === path }
