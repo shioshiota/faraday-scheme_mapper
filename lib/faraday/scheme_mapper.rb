@@ -15,8 +15,7 @@ module Faraday
     def call(env)
       original_url = env.url
       new_scheme = matched_scheme(original_url.path) || original_url.scheme
-      new_url = rebuild_url(original_url, new_scheme)
-      env.url = new_url
+      env.url = rebuild_url(original_url, new_scheme)
       @app.call env
     end
 
